@@ -23,8 +23,8 @@ public class Drivetrain extends SubsystemBase {
 
   private final DifferentialDrive robotDrive;
 
-  NetworkTableEntry speedWidget;
-  NetworkTableEntry rotationWidget;
+  private final NetworkTableEntry speedWidget;
+  private final NetworkTableEntry rotationWidget;
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
@@ -43,7 +43,7 @@ public class Drivetrain extends SubsystemBase {
     rotationWidget = Shuffleboard.getTab("driveData").add("rotation", 0).getEntry();
   }
 
-  public void Drive(double speed, double rotation ) {
+  public void drive(double speed, double rotation ) {
     robotDrive.arcadeDrive(speed * SPEED_PROPORTION, rotation * ROTATION_SPEED_PROPORTION);
     speedWidget.setNumber(speed * SPEED_PROPORTION);
     rotationWidget.setNumber(rotation * ROTATION_SPEED_PROPORTION);

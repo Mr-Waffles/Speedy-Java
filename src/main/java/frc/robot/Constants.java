@@ -30,8 +30,8 @@ public final class Constants {
     public static final int MIDDLE_OPTICAL_ID = 2;
     public static final int TOP_OPTICAL_ID = 1;
 
-    public static final double RAMP_RATE = 0.2; // FIXME confirm
+    public static final double RAMP_RATE = 0.2;
 
     public static final double ROTATION_SPEED_PROPORTION = 0.75;
-    public static final double SPEED_PROPORTION = 1;
+    public static final double SPEED_PROPORTION = -1;
 }
