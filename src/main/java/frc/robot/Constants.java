@@ -18,8 +18,8 @@ public final class Constants {
     public static final int LEFT_FOLLOWER_ID = 4;
     public static final int RIGHT_FOLLOWER_ID = 3;
 
-    public static final double RAMP_RATE = 0.2; // FIXME confirm
+    public static final double RAMP_RATE = 0.2;
 
     public static final double ROTATION_SPEED_PROPORTION = 0.75;
-    public static final double SPEED_PROPORTION = 1;
+    public static final double SPEED_PROPORTION = -1;
 }
