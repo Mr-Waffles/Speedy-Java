@@ -74,8 +74,8 @@ public class Drivetrain extends SubsystemBase {
     final double triggerThreshTimeInSec = 1;
     controller.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, currentLimit, limitThreshold, triggerThreshTimeInSec));
     if (!isFollower) {
-        controller.configClosedloopRamp(RAMP_RATE);
-        controller.configOpenloopRamp(RAMP_RATE);
+        controller.configClosedloopRamp(DRIVE_RAMP_RATE);
+        controller.configOpenloopRamp(DRIVE_RAMP_RATE);
     }
     controller.setNeutralMode(NeutralMode.Brake);
 }

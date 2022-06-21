@@ -18,6 +18,10 @@ public final class Constants {
     public static final int RIGHT_PRIMARY_ID = 1;
     public static final int LEFT_FOLLOWER_ID = 4;
     public static final int RIGHT_FOLLOWER_ID = 3;
+
+    public static final int SHOOTER_FLYWHEEL_ID = 5;
+    public static final int SHOOTER_HOOD_ROTATOR_ID = 91; //FIXME fix can id's
+    public static final int SHOOTER_HOOD_POWER_ID = 90;
     
     public static final int LEFT_CLIMBER_ID = 8;
     public static final int RIGHT_CLIMBER_ID = 7;
@@ -30,7 +34,8 @@ public final class Constants {
     public static final int MIDDLE_OPTICAL_ID = 2;
     public static final int TOP_OPTICAL_ID = 1;
 
-    public static final double RAMP_RATE = 0.2;
+    public static final double DRIVE_RAMP_RATE = 0.2;
+    public static final double SHOOTER_RAMP_RATE = 1;
 
     public static final double ROTATION_SPEED_PROPORTION = 0.75;
     public static final double SPEED_PROPORTION = -1;
