@@ -24,10 +24,10 @@ public class Shooter extends SubsystemBase {
     flywheelMotor = new WPI_TalonFX(SHOOTER_FLYWHEEL_ID);
     hoodPowerMotor = new WPI_TalonFX(SHOOTER_HOOD_POWER_ID);
     hoodRotatorMotor = new CANSparkMax(SHOOTER_HOOD_ROTATOR_ID, MotorType.kBrushless);
-    configureAllControllors();
+    configureAllControllers();
   }
 
-  private void configureAllControllors() {
+  private void configureAllControllers() {
     configureController(flywheelMotor, Motors.FLYWHEEL);
     configureController(hoodPowerMotor, Motors.HOOD_POWER);
     configureController(hoodRotatorMotor);

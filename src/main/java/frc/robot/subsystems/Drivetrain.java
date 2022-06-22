@@ -9,9 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
-import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.*;
 
@@ -22,9 +20,6 @@ public class Drivetrain extends SubsystemBase {
   private final WPI_TalonFX rightFollower;
 
   private final DifferentialDrive robotDrive;
-
-  private final NetworkTableEntry speedWidget;
-  private final NetworkTableEntry rotationWidget;
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
@@ -38,15 +33,10 @@ public class Drivetrain extends SubsystemBase {
     configureAllControllers();
 
     robotDrive = new DifferentialDrive(leftPrimary, rightPrimary);
-
-    speedWidget = Shuffleboard.getTab("driveData").add("speed", 0).getEntry();
-    rotationWidget = Shuffleboard.getTab("driveData").add("rotation", 0).getEntry();
   }
 
   public void drive(double speed, double rotation ) {
     robotDrive.arcadeDrive(speed * SPEED_PROPORTION, rotation * ROTATION_SPEED_PROPORTION);
-    speedWidget.setNumber(speed * SPEED_PROPORTION);
-    rotationWidget.setNumber(rotation * ROTATION_SPEED_PROPORTION);
   }
 
   private void setFollowers() {
