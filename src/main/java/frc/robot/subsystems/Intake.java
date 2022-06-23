@@ -7,6 +7,8 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardLayout;
@@ -19,12 +21,14 @@ public class Intake extends SubsystemBase {
   private final CANSparkMax intakeMotor;
   private double intakeSpeed = INTAKE_SPEED_PROPORTION;
   private final ShuffleboardLayout layout;
+  private final Solenoid pneumatics;
 
   /** Creates a new Intake. */
   public Intake() {
     intakeMotor = new CANSparkMax(INTAKE_MOTOR_ID, MotorType.kBrushless);
     layout = Shuffleboard.getTab("driveData").getLayout("Intake", BuiltInLayouts.kList).withSize(2, 2).withPosition(0, 0);
     layout.add("Intake Speed", new HSendableBuilder().addDoublePropertyInline("Intake speed", this::getIntakeSpeed, (double val) -> {setIntakeSpeed(val);}));
+    pneumatics = new Solenoid(PneumaticsModuleType.CTREPCM, INTAKE_SOLENOID_ID); //FIXME set PneumaticsModuleType
   }
 
   public void intakeBall() {
@@ -33,6 +37,14 @@ public class Intake extends SubsystemBase {
 
   public void outputBall() {
     intakeMotor.set(-INTAKE_DIRECTION*INTAKE_SPEED_PROPORTION);
+  }
+
+  public void extendIntake() {
+    pneumatics.set(true);
+  }
+
+  public void retractIntake() {
+    pneumatics.set(false);
   }
 
   public double getIntakeSpeed() {

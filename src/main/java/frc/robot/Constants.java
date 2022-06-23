@@ -48,4 +48,5 @@ public final class Constants {
     public static final int INTAKE_MOTOR_ID = 93; // FIXME fix intake motor id
     public static final int INTAKE_DIRECTION = 1; //FIXME set to make the buttons do the right thing
     public static final double INTAKE_SPEED_PROPORTION = 0.2;
+    public static final int INTAKE_SOLENOID_ID = 94; // FIXME fix intake solenoid id
 }
