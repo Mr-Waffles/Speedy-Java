@@ -39,6 +39,10 @@ public class Intake extends SubsystemBase {
     intakeMotor.set(-INTAKE_DIRECTION*INTAKE_SPEED_PROPORTION);
   }
 
+  public void stopIntake() {
+    intakeMotor.stopMotor();
+  }
+
   public void extendIntake() {
     pneumatics.set(true);
   }
