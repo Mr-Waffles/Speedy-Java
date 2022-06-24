@@ -16,13 +16,11 @@ import frc.robot.commands.testShooter;
 /** Add your docs here. */
 public class OI {
     private static final XboxController driverController = new XboxController(0);
-    private static final XboxController manipController = new XboxController(0);
-    private final Intake intake;
+    private static final XboxController manipulatorController = new XboxController(1);
     private final Climber climber;
-    // private static final XboxController manipulatorController = new XboxController(1);
 
     public OI() {
-        intake = new Intake();
+        // intake = new Intake();
         climber = new Climber();
     }
 
@@ -32,14 +30,14 @@ public class OI {
 
     public void bindButtons() {
         //driver controls
-        new JoystickButton(driverController, XboxController.Button.kB.value).whenPressed(new visionAim());
-        new JoystickButton(driverController, XboxController.Button.kY.value).whenPressed(new testShooter());
+        // new JoystickButton(driverController, XboxController.Button.kB.value).whenPressed(new visionAim());
+        // new JoystickButton(driverController, XboxController.Button.kY.value).whenPressed(new testShooter());
 
         //manipulator controls
-        new JoystickButton(manipController, XboxController.Button.kB.value).whenPressed(intake::intakeBall).whenReleased(intake::stopIntake); 
-        new JoystickButton(manipController, XboxController.Button.kA.value).whenPressed(intake::outputBall).whenReleased(intake::stopIntake);
-        new JoystickButton(manipController, XboxController.Button.kRightBumper.value).whenPressed(intake::extendIntake).whenReleased(intake::retractIntake);
-        new JoystickButton(manipController, XboxController.Button.kX.value).whenPressed(climber::Lower).whenReleased(climber::Stop);
-        new JoystickButton(manipController, XboxController.Button.kY.value).whenPressed(climber::Raise).whenReleased(climber::Stop);
+        // new JoystickButton(manipController, XboxController.Button.kB.value).whenPressed(intake::intakeBall).whenReleased(intake::stopIntake); 
+        // new JoystickButton(manipController, XboxController.Button.kA.value).whenPressed(intake::outputBall).whenReleased(intake::stopIntake);
+        // new JoystickButton(manipController, XboxController.Button.kRightBumper.value).whenPressed(intake::extendIntake).whenReleased(intake::retractIntake);
+        new JoystickButton(manipulatorController, XboxController.Button.kX.value).whenPressed(climber::Lower).whenReleased(climber::Stop);
+        new JoystickButton(manipulatorController, XboxController.Button.kY.value).whenPressed(climber::Raise).whenReleased(climber::Stop);
     }
 }
