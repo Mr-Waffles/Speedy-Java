@@ -8,10 +8,7 @@ import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.visionAim;
 import frc.robot.subsystems.Climber;
-import frc.robot.subsystems.Intake;
-import frc.robot.commands.testShooter;
 
 /** Add your docs here. */
 public class OI {
