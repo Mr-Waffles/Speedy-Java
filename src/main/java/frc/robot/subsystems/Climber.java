@@ -36,8 +36,8 @@ public class Climber extends SubsystemBase {
   }
 
   public void PivotUp() {
-      climber.set(false);
-      pivotPosition = PivotState.Up;
+    climber.set(false);
+    pivotPosition = PivotState.Up;
   }
 
   public void PivotDown() {
@@ -60,7 +60,7 @@ public class Climber extends SubsystemBase {
 
   public void Lower() {
     leftMotor.set(1);
-    leftMotor.set(-1);
+    rightMotor.set(-1);
   }
 
   public void LowerSlow() {
