@@ -35,8 +35,18 @@ public class Drivetrain extends SubsystemBase {
     robotDrive = new DifferentialDrive(leftPrimary, rightPrimary);
   }
 
-  public void drive(double speed, double rotation ) {
+  public void drive(double speed, double rotation) {
     robotDrive.arcadeDrive(speed * SPEED_PROPORTION, rotation * ROTATION_SPEED_PROPORTION);
+  }
+
+  public void driveUsingSpeeds(double speed, double rotation) {
+    robotDrive.arcadeDrive(speed, rotation);
+  }
+
+  public double[] getEncoderRotations() {
+    double leftSideRotations = (leftPrimary.getSensorCollection().getIntegratedSensorPosition() * -1) / 2048;
+    double rightSideRotations = rightPrimary.getSensorCollection().getIntegratedSensorPosition() / 2048;
+    return new double[] {leftSideRotations, rightSideRotations};
   }
 
   private void setFollowers() {

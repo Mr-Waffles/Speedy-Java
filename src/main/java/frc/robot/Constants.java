@@ -23,7 +23,7 @@ public final class Constants {
     public static final double DRIVE_RAMP_RATE = 0.2;
 
     public static final double ROTATION_SPEED_PROPORTION = 0.75;
-    public static final double SPEED_PROPORTION = -1;
+    public static final double SPEED_PROPORTION = 1;
 
     //shooter constants
     public static final int SHOOTER_FLYWHEEL_ID = 5;
