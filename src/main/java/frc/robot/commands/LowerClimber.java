@@ -5,32 +5,28 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Shooter;
+import static frc.robot.RobotContainer.climber;
 
-public class testShooter extends CommandBase {
-  private final Shooter shooter;
-  /** Creates a new testShooter. */
-  public testShooter() {
-    // Use addRequirements() here to declare subsystem dependencies.
-    shooter = new Shooter();
-    addRequirements(shooter);
+public class LowerClimber extends CommandBase {
+  /** Creates a new LowerClimber. */
+  public LowerClimber() {
+    addRequirements(climber);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.powerFlywheel();
+    climber.Lower();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shooter.stopFlywheel();
+      climber.Stop();
   }
 
   // Returns true when the command should end.

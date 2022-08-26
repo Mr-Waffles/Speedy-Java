@@ -8,24 +8,21 @@ import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.visionAim;
 import frc.robot.subsystems.Climber;
-import frc.robot.subsystems.Intake;
-import frc.robot.commands.testShooter;
+
+import frc.robot.commands.*;
 
 /** Add your docs here. */
 public class OI {
     private static final XboxController driverController = new XboxController(0);
     private static final XboxController manipulatorController = new XboxController(1);
-    private final Climber climber;
 
     public OI() {
         // intake = new Intake();
-        climber = new Climber();
     }
 
     public static DoubleSupplier[] getDriveSuppliers() {
-       return new DoubleSupplier[] {() -> -driverController.getLeftY(), () -> driverController.getRightX()};
+       return new DoubleSupplier[] {() -> driverController.getLeftY(), () -> driverController.getRightX()};
     }
 
     public void bindButtons() {
@@ -37,7 +34,8 @@ public class OI {
         // new JoystickButton(manipController, XboxController.Button.kB.value).whenPressed(intake::intakeBall).whenReleased(intake::stopIntake); 
         // new JoystickButton(manipController, XboxController.Button.kA.value).whenPressed(intake::outputBall).whenReleased(intake::stopIntake);
         // new JoystickButton(manipController, XboxController.Button.kRightBumper.value).whenPressed(intake::extendIntake).whenReleased(intake::retractIntake);
-        new JoystickButton(manipulatorController, XboxController.Button.kX.value).whenPressed(climber::Lower).whenReleased(climber::Stop);
-        new JoystickButton(manipulatorController, XboxController.Button.kY.value).whenPressed(climber::Raise).whenReleased(climber::Stop);
+        new JoystickButton(manipulatorController, XboxController.Button.kX.value).whileHeld(new LowerClimber());
+        new JoystickButton(manipulatorController, XboxController.Button.kY.value).whileHeld(new RaiseClimber());
+        new JoystickButton(manipulatorController, XboxController.Button.kA.value).whenPressed(new PivotToggle());
     }
 }

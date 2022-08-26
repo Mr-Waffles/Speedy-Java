@@ -6,8 +6,11 @@ package frc.robot;
 
 import frc.robot.commands.DriveWithJoystick;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.PCM;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.commands.autonomous.DriveToDistance;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -18,6 +21,8 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final Drivetrain drivetrain = new Drivetrain();
+  public static final Climber climber = new Climber();
+  public static final PCM pcm = new PCM();
 
   private final OI oi = new OI();
 
@@ -34,7 +39,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return new InstantCommand();
+    return new DriveToDistance(0.2, -41.5);
   }
 
   private void initDefaultCommands() {

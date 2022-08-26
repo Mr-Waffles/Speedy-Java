@@ -14,7 +14,7 @@ public class PCM extends SubsystemBase {
   public final Compressor compressor;
   /** Creates a new PCM. */
   public PCM() {
-    compressor = new Compressor(PCM_CAN_ID, PneumaticsModuleType.REVPH);
+    compressor = new Compressor(PCM_CAN_ID, PneumaticsModuleType.CTREPCM);
     compressor.enableDigital();
   }
 
