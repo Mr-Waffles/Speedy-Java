@@ -14,6 +14,6 @@ public class HSendableBuilder extends SendableBuilderImpl {
 
     public HSendableBuilder addDoublePropertyInline(String key, DoubleSupplier getter, DoubleConsumer setter) {
         super.addDoubleProperty(key, getter, setter);
-        return this; //this is a bad commit
+        return this; //this is a good comment
     }
 }
