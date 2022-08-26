@@ -37,7 +37,7 @@ public final class Constants {
     public static final int RIGHT_CLIMBER_ID = 7;
 
     public static final int PCM_CAN_ID = 15;
-    public static final int CLIMBER_SOLENOID_ID = 4;
+    public static final int CLIMBER_SOLENOID_ID = 7;
     public static final int ARM_SOLENOID_ID = 9;
 
     public static final int BOTTOM_OPTICAL_ID = 0;

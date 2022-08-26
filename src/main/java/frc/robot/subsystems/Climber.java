@@ -26,7 +26,7 @@ public class Climber extends SubsystemBase {
   public PivotState pivotPosition;
 
   public Climber() {
-    climber = new Solenoid(PCM_CAN_ID, PneumaticsModuleType.REVPH, CLIMBER_SOLENOID_ID);
+    climber = new Solenoid(PCM_CAN_ID, PneumaticsModuleType.CTREPCM, CLIMBER_SOLENOID_ID);
     leftMotor = new WPI_TalonFX(LEFT_CLIMBER_ID);
     rightMotor = new WPI_TalonFX(RIGHT_CLIMBER_ID);
 
@@ -36,8 +36,8 @@ public class Climber extends SubsystemBase {
   }
 
   public void PivotUp() {
-      climber.set(false);
-      pivotPosition = PivotState.Up;
+    climber.set(false);
+    pivotPosition = PivotState.Up;
   }
 
   public void PivotDown() {
@@ -60,7 +60,7 @@ public class Climber extends SubsystemBase {
 
   public void Lower() {
     leftMotor.set(1);
-    leftMotor.set(-1);
+    rightMotor.set(-1);
   }
 
   public void LowerSlow() {
