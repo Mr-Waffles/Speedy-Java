@@ -25,6 +25,8 @@ public final class Constants {
     public static final double ROTATION_SPEED_PROPORTION = 0.75;
     public static final double SPEED_PROPORTION = 1;
 
+    public static final int kUnitsPerRevolution = 2048;
+
     //shooter constants
     public static final int SHOOTER_FLYWHEEL_ID = 5;
     public static final int SHOOTER_HOOD_ROTATOR_ID = 91; //FIXME fix can id's

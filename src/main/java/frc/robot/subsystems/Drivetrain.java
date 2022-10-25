@@ -8,12 +8,19 @@ import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
+import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
+import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.*;
 
 public class Drivetrain extends SubsystemBase {
+
   private final WPI_TalonFX leftPrimary;
   private final WPI_TalonFX rightPrimary;
   private final WPI_TalonFX leftFollower;
@@ -72,12 +79,22 @@ public class Drivetrain extends SubsystemBase {
     final double currentLimit = 60;
     final double limitThreshold = 90;
     final double triggerThreshTimeInSec = 1;
+
+    controller.configFactoryDefault();
+
     controller.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, currentLimit, limitThreshold, triggerThreshTimeInSec));
     if (!isFollower) {
         controller.configClosedloopRamp(DRIVE_RAMP_RATE);
         controller.configOpenloopRamp(DRIVE_RAMP_RATE);
     }
     controller.setNeutralMode(NeutralMode.Brake);
+    TalonFXConfiguration configs = new TalonFXConfiguration();
+    configs.primaryPID.selectedFeedbackSensor = FeedbackDevice.IntegratedSensor;
+    controller.configAllSettings(configs);
+    
+
+
+
 }
 
   @Override
