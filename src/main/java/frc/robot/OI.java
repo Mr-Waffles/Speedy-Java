@@ -22,7 +22,7 @@ public class OI {
     }
 
     public static DoubleSupplier[] getDriveSuppliers() {
-       return new DoubleSupplier[] {() -> driverController.getLeftY(), () -> driverController.getRightX()};
+       return new DoubleSupplier[] {() -> driverController.getLeftY(), () -> -driverController.getRightX()};
     }
 
     public void bindButtons() {
